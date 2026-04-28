@@ -5,7 +5,7 @@ import {
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import type { IReadonlyTheme } from '@microsoft/sp-component-base';
-
+import './assets/dwt-scanner.html';
 import styles from './DynamicWebTwainWebPart.module.scss';
 import * as strings from 'DynamicWebTwainWebPartStrings';
 
@@ -28,10 +28,10 @@ export default class DynamicWebTwainWebPart extends BaseClientSideWebPart<IDynam
     if (baseUrls && baseUrls.length > 0) {
       const distUrl = baseUrls[0].replace(/\/+$/, '');
       const libUrl = distUrl.replace(/\/dist$/, '') + '/lib';
-      return libUrl + '/webparts/dynamicWebTwain/dwt-scanner.html';
+      return libUrl + '/webparts/dynamicWebTwain/assets/dwt-scanner.html';
     }
     if (this.context.isServedFromLocalhost) {
-      return 'https://localhost:4321/lib/webparts/dynamicWebTwain/dwt-scanner.html';
+      return 'https://localhost:4321/lib/webparts/dynamicWebTwain/assets/dwt-scanner.html';
     }
     return '';
   }
