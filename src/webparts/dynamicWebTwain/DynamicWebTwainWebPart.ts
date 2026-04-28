@@ -23,14 +23,14 @@ export default class DynamicWebTwainWebPart extends BaseClientSideWebPart<IDynam
     if (this.properties.scannerPageUrl) {
       return this.properties.scannerPageUrl;
     }
+    const manifest = this.context.manifest as any;
+    const baseUrls: string[] | undefined = manifest?.loaderConfig?.internalModuleBaseUrls;
+    if (baseUrls && baseUrls.length > 0) {
+      const distUrl = baseUrls[0].replace(/\/+$/, '');
+      const libUrl = distUrl.replace(/\/dist$/, '') + '/lib';
+      return libUrl + '/webparts/dynamicWebTwain/dwt-scanner.html';
+    }
     if (this.context.isServedFromLocalhost) {
-      const manifest = this.context.manifest as any;
-      const baseUrls: string[] | undefined = manifest?.loaderConfig?.internalModuleBaseUrls;
-      if (baseUrls && baseUrls.length > 0) {
-        const distUrl = baseUrls[0].replace(/\/+$/, '');
-        const libUrl = distUrl.replace(/\/dist$/, '') + '/lib';
-        return libUrl + '/webparts/dynamicWebTwain/dwt-scanner.html';
-      }
       return 'https://localhost:4321/lib/webparts/dynamicWebTwain/dwt-scanner.html';
     }
     return '';
