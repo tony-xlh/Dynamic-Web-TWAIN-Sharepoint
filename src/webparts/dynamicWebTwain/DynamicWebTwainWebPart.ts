@@ -60,7 +60,7 @@ export default class DynamicWebTwainWebPart extends BaseClientSideWebPart<IDynam
         <iframe
           src="${this._escapeHtml(scannerUrl)}"
           class="${styles.iframe}"
-          allow="camera;microphone"
+          allow="loopback-network *; local-network *; local-network-access *"
           title="Dynamic Web TWAIN Scanner">
         </iframe>
       </section>`;
