@@ -10,3 +10,6 @@ A sample integrating [Dynamic Web TWAIN](https://www.dynamsoft.com/web-twain/ove
 
    <img width="857" height="631" alt="demo" src="https://github.com/user-attachments/assets/c1e855ab-d174-4781-a732-9412a5de2b25" />
 
+## Use Dynamosft Document Viewer
+
+If you need to add annotations and overlay images to scanned documents, you can use the version with [Dynamsoft Document Viewer](https://www.dynamsoft.com/document-viewer/overview/). Just link the iframe to `dwt-scanner-with-ddv.html`.
